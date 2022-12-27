@@ -1,0 +1,60 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <form method="post" action="{% url 'patient' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="col-12">
+            <h5 class="form-title"><span>Staff Patient</span></h5>
+          </div>
+          
+          {% include 'includes/messages.html' %} 
+          
+          {% for i in staff %}
+          <div class="col-12 col-sm-11">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" class="form-control" name="first_name" value="{{i.admin.first_name}}&nbsp;{{i.admin.last_name}}" readonly />
+            </div>
+          </div>
+          {% endfor %}
+
+          {% for j in staffdesign %}
+
+          <div class="col-12 col-sm-11">
+            <div class="form-group">
+              <label>Journal Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="journal_name"
+                value="{{j.journal_name}}"/>
+                readonly
+            </div>
+          </div>
+          {% endfor %}
+
+
+          <div class="col-12 col-sm-11">
+            <div class="form-group">
+              <label>Abstract of Technolgy</label>
+              <input
+                type="text"
+                class="form-control"
+                name="Abstract_technolgy"/>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Add CopyWrite</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>National Programme on Technology Enhanced Learning (NPTEL) </h4>
+<div class="row">
+    <div class="col-sm-12">
+       <div class="card">
+          <div class="card-body">
+             <form method="post" action="{% url 'student_nptel_score' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                  <div class="col-12">
+                     <h5 class="form-title"><span>Upload Your NPTEL Score</span></h5>
+                  </div>
+                  {% include 'includes/messages.html' %}
+                  
+                  
+                  <div class="col-12 col-sm-11">
+                  <div class="form-group">
+                     <label>Course Name</label>
+                     <input type="text" class="form-control" name="nptel_course" required>
+                  </div>
+               </div>
+
+               <div class="row col-12 col-sm-11">
+                  <div class="col-12 col-sm-6">
+                     <div class="form-group">
+                         <label>Duration of Course Start</label>
+                         <div>
+                            <input type="date" class="form-control" name="nptel_session_start" required>
+                         </div>
+                      </div>
+                  </div>
+   
+                  <div class="col-12 col-sm-6">
+                     <div class="form-group">
+                        <label>Duration of Course End</label>
+                        <div>
+                           <input type="date" class="form-control" name="nptel_session_end" required>
+                        </div>
+                     </div>
+                  </div>               
+               </div>
+
+
+                 <div class="col-12 col-sm-11">
+                  <div class="form-group">
+                     <label>Percentage (Do not use '%' sign)</label>
+                     <input type="Number" class="form-control" name="percentage" required>
+                  </div>
+               </div>
+
+               <div class="col-12 col-sm-11">
+                  <div class="form-group d-flex " >
+
+               <p> Please Select Your Certificate Type :</p>
+                <select class="form-select mx-5" aria-label="Default select example" name="certificate_type" >
+                   <option selected>Open this select Certificate Type</option>
+                   <option value="1">None</option>
+                   <option value="2">Silver</option>
+                   <option value="3">Elite</option>
+                   <option value="3">Gold</option>
+                </select>
+               
+              </div>
+               </div>
+<br>
+
+                 <div class="col-12 col-sm-11">
+                    <div class="form-group">
+                       <label>Upload Your NPTEL Certificate </label>
+                       <input type="file" class="form-control" name="upload_certificate" required>
+                    </div>
+                 </div>
+
+                   <div class="col-12">
+                      <button type="submit" class="btn btn-primary"> Submit</button>
+                   </div>
+
+             </form>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock content %}
+
+
+

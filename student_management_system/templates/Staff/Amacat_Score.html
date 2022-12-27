@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+       <div class="card">
+          <div class="card-body">
+             <form method="post" action="{% url 'amacat_score' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                   <div class="col-12">
+                      <h5 class="form-title"><b>Upload your Amcat Score<b></h5>
+                   </div>
+                   {% include 'includes/messages.html' %}
+                     <div class="col-12 col-sm-11">
+                      
+                   </div>
+                   <div class="col-12 col-sm-11">
+                      <div class="form-group">
+                         <label>Full Name</label>
+                         <input type="text" class="form-control" name="first_name"  >
+                      </div>
+                   </div>
+                  
+
+                   <div class="col-12 col-sm-11">
+                    <div class="form-group">
+                       <label>Score in Domain</label>
+                       <input type="text" class="form-control" name="score_domine" required>
+                    </div>
+                 </div>
+
+                 <div class="col-12 col-sm-11">
+                    <div class="form-group">
+                       <label>Score in English</label>
+                       <input type="Number" class="form-control" name="score_english" required>
+                    </div>
+                 </div>
+
+                 <div class="col-12 col-sm-11">
+                    <div class="form-group">
+                       <label>Score in logical Ability</label>
+                       <input type="Number" class="form-control" name="score_logical" required>
+                    </div>
+                 </div>
+
+                 <div class="col-12 col-sm-11">
+                    <div class="form-group">
+                       <label>Score in Quatitative  </label>
+                       <input type="Number" class="form-control" name="score_quatitative" required>
+                    </div>
+                 </div>
+                 
+                   <div class="col-12">
+                      <button type="submit" class="btn btn-primary"> Submit</button>
+                   </div>
+             </form>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock content %}
+
+

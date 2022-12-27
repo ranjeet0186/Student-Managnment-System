@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+       <div class="card">
+          <div class="card-body">
+            {% for i in staff_design %}              
+            {% endif %}
+             <form method="post" action="#" enctype="multipart/form-data">
+                {% csrf_token %}
+                   <div class="col-12">
+                      <h5 class="form-title"><span>Detail of Patient</span></h5>
+                   </div>
+                   {% include 'includes/messages.html' %}
+                   
+                   <div class="col-12 col-sm-11">
+                    <div class="form-group">
+                       <label>Journal Name</label>
+                       <input type="text" class="form-control" name="" value="{{i.journal_name}}" >
+                    </div>
+                 </div> 
+
+                 <div class="col-12 col-sm-11">
+                    <div class="form-group">
+                       <label>Product Name</label>
+                       <input type="text" class="form-control" name="first_name" value="{{i.product_name}}"  >
+                    </div>
+                 </div>
+                    
+                   
+                   <div class="col-12 col-sm-11">
+                      <div class="form-group">
+                         <label>Image</label>
+                         {% if i.image_patient %}
+                            <img width="100px;" height="100px;" src="{{i.image_patient.url}}">
+                            {% else %}
+                            <img width="100px;" height="100px;" src="">
+                            {% endif %}
+                      </div>
+                   </div>
+
+                   <div class="col-12 col-sm-11">
+                    <div class="form-group">
+                       <label>Document :</label>
+                       <a href="" download>{{i.document}}</a>
+                    </div>
+                 </div>
+
+                 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                {% endfor %}
+
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock content %}
+
+

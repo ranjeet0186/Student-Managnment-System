@@ -1,0 +1,68 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+        {% for i in student %}
+
+          <div class="col">
+             <h3 class="page-title">{{i.admin.first_name}}&nbsp; {{i.admin.last_name}} Patient Detail</h3>
+          </div>
+        {% endfor %}
+
+       </div>
+    </div>
+    {% include 'includes/messages.html' %}
+
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card card-table">
+             <div class="card-body">
+                <div class="table-responsive">
+                   <table id="table_id" class="table table-hover table-center mb-0 ">
+                      <thead>
+                         <tr>
+                            <th>Journal Name</th>
+                            <th>Product Name</th>
+                            <th>Image</th>
+                            <th>PPT Documents </th>
+                            <th>Abstract technolgy</th>
+                            <th>CopyWrite Number</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                            {% for j in studentdesign %}
+                            <td class="">{{j.journal_name}}</td>
+                            <td class="">{{j.product_name}}</td>
+                            <td class="">
+                                {% if j.image_patient %}
+                                <img width="100px;" height="100px;" src="{{j.image_patient.url}}">
+                                {% else %}
+                                <img width="100px;" height="100px;" src="">
+                                {% endif %}
+                            </td>
+                            <td class="">
+                                <a href="" download>{{j.document}}</a>
+                            </td>
+                            {% for l in studentpatient %}
+                            <td class="">
+                                {{l.Abstract_technolgy}}
+                                </td>
+                            {% endfor %}
+
+                            {% for k in studentCopywrite %}
+                            <td class="">{{k.copywrite_number}}</td>
+                            {% endfor %}
+                         </tr>
+                         {% endfor %}
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock content %}
